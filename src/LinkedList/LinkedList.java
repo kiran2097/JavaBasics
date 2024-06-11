@@ -2,7 +2,7 @@ package LinkedList;
 
 public class LinkedList {
 
-    public class Node {
+    public static class Node {
         int data;
         Node next;
 
@@ -23,13 +23,15 @@ public class LinkedList {
     }
     public void insertAtFirst(int data) {
         Node newNode = new Node(data);
-        newNode.next = this.head;
+//        newNode.next = this.head;
         this.head = newNode;
     }
 
     public void insertAtEnd(int data) {
-        if (this.head == null)
+        if (this.head == null) {
             insertAtFirst(data);
+            return;
+        }
         Node newNode = new Node(data);
         Node currentNode = this.head;
         while (currentNode.next != null) {
